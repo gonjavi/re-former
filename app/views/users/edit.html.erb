@@ -1,0 +1,30 @@
+<h1>New user</h1>
+<%# 
+<form accept-charset="UTF-8" action="/users" method="post">
+  <label for="user[username]">Username:</label>
+  <input id="q" name="user[username]" type="text" /><br>
+   <label for="user[email]">Email:</label>
+  <input id="q" name="user[email]" type="email" /><br>
+   <label for="user[password]">Password:</label>
+  <input id="q" name="user[password]" type="password" /><br>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %><%# ">
+  <input type="submit" value="Submit">
+</form> %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%=form_for(@user,   method: :patch) do |f|%>
+        
+        <%= f.label :username%>
+        <%= f.text_field :username, autofocus: true, placeholder: 'Username' %>
+
+        <%= f.label :email%>
+        <%= f.email_field :email, placeholder:"example@example.com" %>
+
+        <%= f.label :password%>
+        <%= f.password_field :password %>
+
+        <%= f.submit "Edit User"  %>
+      <%end%>
+     </div>
+  </div>
+ 

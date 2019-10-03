@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :show]
     def new
       @user = User.new
     end
@@ -8,7 +8,8 @@ class UsersController < ApplicationController
         #@user = User.new(username: params[:username], email: params[:email], password: params[:password])
 			@user = User.new(user_params)
         if @user.save
-          redirect_to new_user_path
+          flash[:success]="User created"
+          redirect_to @user
         else
           render :new
         end
@@ -17,12 +18,16 @@ class UsersController < ApplicationController
       def edit
 
       end
+
+      def show
+        @user = User.find(params[:id])
+      end
       
       def update
         respond_to do |format|
           if @user.update(user_params)
-            format.html { redirect_to new_user_path, notice: 'User was successfully updated.' }
-            format.json { render :new, status: :ok, location: @user }
+            format.html { redirect_to @user, notice: 'User was successfully updated.' }
+            format.json { render @user, status: :ok, location: @user }
           else
             format.html { render :edit }
             format.json { render json: @user.errors, status: :unprocessable_entity }

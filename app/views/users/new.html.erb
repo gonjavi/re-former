@@ -1,0 +1,23 @@
+
+<%# 
+<form accept-charset="UTF-8" action="/users" method="post">
+  <label for="user[username]">Username:</label>
+  <input id="q" name="user[username]" type="text" /><br>
+   <label for="user[email]">Email:</label>
+  <input id="q" name="user[email]" type="email" /><br>
+   <label for="user[password]">Password:</label>
+  <input id="q" name="user[password]" type="password" /><br>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %><%# ">
+  <input type="submit" value="Submit">
+</form> %>
+  <div class="row">
+    <div class="col-md-6 offset-md-1">
+     <h1>New User</h1>
+
+      <%= render 'form', user: @user, url: users_path %>
+
+      <%= link_to 'Show', @user %> 
+      <%= link_to 'Back', users_path %>
+    </div>
+  </div>
+ 

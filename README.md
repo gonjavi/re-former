@@ -1,4 +1,4 @@
-# Re-former
+# Ruby on rails Re-former
 This project focuses on forms, you can create, and edit a user, display all the users on a form and also display a single user on a different page. This is built with ruby on rails framework and is proposed on the website the oding project, and it is also an assignment for microverse.
 
 ![screenshot](./re-former.png)
